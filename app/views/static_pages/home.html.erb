@@ -1,6 +1,6 @@
 <div class='main'>
 <h1>Welcome!</h1>
-<p>Use the Yelp API to make a table that displays the top <%=@response.businesses.count%> results for a search for '<%= @parameters[:term] %>' in Salt Lake City, UT. </p>
+<p>I am using the Yelp API to make a table that displays the top <%=@response.businesses.count%> results for a search for '<%= @parameters[:term] %>' in Salt Lake City, UT. </p>
 </br>
 <p>Navigating the Yelp API is straightforward, but there are some speed bumps for the uninitiated!</p>
 <ul>
@@ -17,18 +17,20 @@
   </li>
 
   </ul>
-<p><strong>Clicking a business name will take you to the business' Yelp profile.</strong></br>The businesses are sorted</p>
+<p><strong>Clicking a business name will take you to the business' Yelp profile.</strong></br>The businesses are sorted by rating- but they may look out-of-order! Yelp uses a complex algorithm so that a business with one 5-star rating is not automatically above a business with hundreds of mostly 4 or 5-star reviews. </p>
 <div>
   <table class='responses'>
   <tr>
     <th>Name</th>
-    <th>Rating</th>
+    <th>Reviews</th>
+    <th>Count</th>
     <th>Address</th>
   </tr>
   <% @response.businesses.each do |business| %>
     <tr>
       <td><%=link_to business.name, business.url%></td>
-      <td><%=business.rating%></td>
+      <td><%=image_tag business.rating_img_url_small%></td>
+      <td><%=business.review_count%></td>
       <td><%=business.location.display_address%></td>
     </tr>
   <% end %> 
