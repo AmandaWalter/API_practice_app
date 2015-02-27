@@ -1,1 +1,37 @@
+<div class='main'>
 <h1>Welcome!</h1>
+<p>Use the Yelp API to make a table that displays the top <%=@response.businesses.count%> results for a search for '<%= @parameters[:term] %>' in Salt Lake City, UT. </p>
+</br>
+<p>Navigating the Yelp API is straightforward, but there are some speed bumps for the uninitiated!</p>
+<ul>
+  <li>If you are using Rails, clone the <%= link_to 'sample Yelp app', 'https://github.com/Yelp/yelp-rails-example' %>
+    <ul>
+      <li>The sample is pretty light, it did not help me figure out how to display the data on my page. That was the biggest hurdle I faced... I will link to how I set everything up, along with examples of how to display the data soon! For now, you can view this app on <%= link_to 'GitHub', 'https://github.com/AmandaWalter/API_practice_app' %></li></ul></li>
+  <li>Next steps:
+    <ul>
+      <li>User can define their own search term and location</li>
+      <li>Each address links to directions to the business</li>
+      <li>Testing!</li>
+      <li>All locations populate on a map</li>
+      <li>Do something cool with the Instagram API</li>
+  </li>
+
+  </ul>
+<p><strong>Clicking a business name will take you to the business' Yelp profile.</strong></br>The businesses are sorted</p>
+<div>
+  <table class='responses'>
+  <tr>
+    <th>Name</th>
+    <th>Rating</th>
+    <th>Address</th>
+  </tr>
+  <% @response.businesses.each do |business| %>
+    <tr>
+      <td><%=link_to business.name, business.url%></td>
+      <td><%=business.rating%></td>
+      <td><%=business.location.display_address%></td>
+    </tr>
+  <% end %> 
+  </table>
+</div>
+</div>
