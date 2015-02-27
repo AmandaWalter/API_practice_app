@@ -1,5 +1,6 @@
-== API app
-See it on Heroku: [(api-app.herokuapp.com)]
+#API app
+See it on Heroku: http://www.api-app.herokuapp.com
+
 Resources:
 * Codeschool API course: Surviving APIs with Rails
 * Yelp API
