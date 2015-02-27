@@ -2,20 +2,20 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: sample_app_for_kian
+  username: sample_api_app
   pool: 5
 
 development:
   <<: *default
-  database: sample_app_for_kian_development
+  database: sample_api_app_development
   password: password1
 
 test:
   <<: *default
-  database: sample_app_for_kian_test
+  database: sample_api_app_test
   password: password1
 
 production:
   <<: *default
-  database: sample_app_for_kian_production
-  password: <%= ENV['SAMPLE_APP_FOR_KIAN_DATABASE_PASSWORD'] %>
+  database: sample_api_app_production
+  password: <%= ENV['SAMPLE_API_APP_DATABASE_PASSWORD'] %>
