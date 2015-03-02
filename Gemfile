@@ -13,10 +13,18 @@ gem 'yelp', require: 'yelp'
 gem 'oauth', '~> 0.4.7'
 gem 'figaro'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
-  gem 'pry'
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'figaro'
+  gem 'rails-erd'
 end
 
